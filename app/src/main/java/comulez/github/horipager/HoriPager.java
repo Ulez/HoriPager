@@ -142,7 +142,7 @@ public class HoriPager extends ViewGroup {
             setMeasuredDimension(0, 0);
         } else if (widthSpaceMode == MeasureSpec.AT_MOST && heightSpaceMode == MeasureSpec.AT_MOST) {//宽高wrap_content；
             View child = getChildAt(0);
-            measuredWidth = child.getMeasuredWidth() * childCount;
+            measuredWidth = child.getMeasuredWidth();
             measuredHeight = child.getMeasuredHeight();
             setMeasuredDimension(measuredWidth, measuredHeight);
         } else if (heightSpaceMode == MeasureSpec.AT_MOST) {//宽精确，高wrap_content；
@@ -151,7 +151,7 @@ public class HoriPager extends ViewGroup {
             setMeasuredDimension(widthSpaceSize, measuredHeight);
         } else if (widthSpaceMode == MeasureSpec.AT_MOST) {//宽wrap_content；高精确；
             View child = getChildAt(0);
-            measuredWidth = child.getMeasuredWidth() * childCount;
+            measuredWidth = child.getMeasuredWidth();//指定一个默认的宽度，为第一个子view的宽；
             setMeasuredDimension(measuredWidth, heightSpaceSize);
         }
     }
